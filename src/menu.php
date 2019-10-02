@@ -15,7 +15,7 @@
  [
     'titulo'=> "Sedes",
     'drop'=> true,
-    'dropdown'=> [
+     [
         'titulo'=> "Madrid",
         'href'=> "madrid.php"
     ],
@@ -28,11 +28,11 @@
         'href'=> "barcelona.php",
     ]
  ]
+ 
 ];
+// var_dump($menu)
  ?>
- <div>
- var_dump($menu)
- </div>
+ 
  
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Logo</a>
@@ -45,17 +45,17 @@
         <a class="nav-link" href="<?php echo $menu[0]['href']?>"> <?php echo $menu[0]['titulo']?> <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="noticia.php"><?= $noticias;?></a>
+        <a class="nav-link" href="<?php echo $menu[1]['href']?>"><?php echo $menu[1]['titulo']?></a>
       </li>
       
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="sedes.php" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <?php echo $sedes;?>
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php echo $menu[2]['titulo']?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="madrid.php"><?php echo $madrid;?></a>
-          <a class="dropdown-item" href="valencia.php"><?php echo $valencia;?></a>
-          <a class="dropdown-item" href="barcelona.php"><?php echo $barcelona;?></a>
+          <a class="dropdown-item" href="madrid.php"><?php echo $menu[2][0]['titulo']?></a>
+          <a class="dropdown-item" href="valencia.php"><?php echo $menu[2][1]['titulo']?></a>
+          <a class="dropdown-item" href="barcelona.php"><?php echo $menu[2][2]['titulo']?></a>
         </div>
       </li>
     </ul>
