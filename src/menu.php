@@ -3,30 +3,33 @@
  $menu = [
 
    [    
-    'titulo'=> "Home",
-    'href'=> "index.php",
-    'drop'=> false,
+    "titulo"=> "Home",
+    "href"=> "index.php",
+    "drop"=> false,
    ] ,
- [
-    'titulo'=> "Noticias",
-    'href'=> "noticia.php",
-    'drop'=> false,
- ],
- [
-    'titulo'=> "Sedes",
-    'drop'=> true,
-     [
-        'titulo'=> "Madrid",
-        'href'=> "madrid.php"
-    ],
-    [
-        'titulo'=> "Valencia",
-        'href'=> "valencia.php",
-    ],
-    [
-        'titulo'=> "Barcelona",
-        'href'=> "barcelona.php",
-    ]
+  [
+    "titulo"=> "Noticias",
+    "href"=> "noticia.php",
+    "drop"=> false,
+  ],
+  [
+    "titulo"=> "Sedes",
+    "drop"=> true,
+    'dropdown'=> [
+   [
+      "titulo"=> "Madrid",
+      "href"=> "madrid.php"
+   ],
+   [
+      "titulo"=> "Valencia",
+      "href"=> "valencia.php",
+   ],
+   [
+      "titulo"=> "Barcelona",
+      "href"=> "barcelona.php",
+   ]
+  ]
+     
  ]
  
 ];
@@ -42,20 +45,20 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="<?php echo $menu[0]['href']?>"> <?php echo $menu[0]['titulo']?> <span class="sr-only"></span></a>
+        <a class="nav-link" href="<?php echo $menu[0]["href"]?>"> <?php echo $menu[0]["titulo"]?> <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo $menu[1]['href']?>"><?php echo $menu[1]['titulo']?></a>
+        <a class="nav-link" href="<?php echo $menu[1]["href"]?>"><?php echo $menu[1]["titulo"]?></a>
       </li>
       
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <?php echo $menu[2]['titulo']?>
+        <?php echo $menu[2]["titulo"]?>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="madrid.php"><?php echo $menu[2][0]['titulo']?></a>
-          <a class="dropdown-item" href="valencia.php"><?php echo $menu[2][1]['titulo']?></a>
-          <a class="dropdown-item" href="barcelona.php"><?php echo $menu[2][2]['titulo']?></a>
+          <a class="dropdown-item" href="madrid.php"><?php echo $menu[2]["dropdown"][0]["titulo"]?></a>
+          <a class="dropdown-item" href="valencia.php"><?php echo $menu[2]["dropdown"][1]["titulo"]?></a>
+          <a class="dropdown-item" href="barcelona.php"><?php echo $menu[2]["dropdown"][2]["titulo"]?></a>
         </div>
       </li>
     </ul>
