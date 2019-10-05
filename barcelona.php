@@ -1,11 +1,9 @@
 <?php 
  
- $home='Home';
- $noticias='Noticias';
- $sedes='Sedes';
- $madrid='Madrid';
- $valencia='Valencia';
- $barcelona='Barcelona';
+ $sede="nada";
+ if(isset($_GET["sede"])){
+     $sede=$_GET["sede"];
+ }
 
 
  ?>
@@ -23,7 +21,7 @@
     include './src/menu.php';
 
  ?>
- <h1><?php echo $barcelona;?></h1>
+ <h1>BCN</h1>
 
  <!-- Header -->
  <header class="bg-primary py-5 mb-5">
@@ -42,11 +40,16 @@
 
     <div class="row">
       <div class="col-md-8 mb-5">
-        <h2>What We Do</h2>
+        <h2>Where are We ?</h2>
         <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+        <?php if(($sede=="BCN") || ($sede=="nada")){?>
+            <div class="col-sm">
+            <h2>Barcelona</h2>
+            </div>
+            <?php }?>
+            
         <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95777.5288158209!2d2.078727906576395!3d41.394768814575976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4982760ca89c1%3A0x2fe459482acc3dcb!2sParc%20d&#39;Atraccions%20Tibidabo!5e0!3m2!1ses!2ses!4v1570265923874!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
       </div>
       <div class="col-md-4 mb-5">
         <h2>Contact Us</h2>
