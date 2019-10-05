@@ -44,23 +44,41 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="<?php echo $menu[0]["href"]?>"> <?php echo $menu[0]["titulo"]?> <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo $menu[1]["href"]?>"><?php echo $menu[1]["titulo"]?></a>
-      </li>
+    <?php
+    for ($i=0; $i < count($menu) ; $i++) { 
+      // var_dump($i);
+      if ($menu [$i] ["drop"]) {
+       echo " <li class='nav-item dropdown'>
+       <a class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+        sedes
+        </a> 
+        <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>";
+
+        foreach ($menu [$i] ["dropdown"] as $key => $value) {
+         echo'<a class="dropdown-item" href="madrid.php"><?=$value["titulo"]?></a>';
+         echo '<a class="dropdown-item" href="valencia.php"><?=$value["titulo"]?></a>';
+         echo '<a class="dropdown-item" href="barcelona.php"><?=$value["titulo"]?></a>';
+        };
+
+        echo  " </div>";
+        echo " </li>";
+      }else{
+        echo " <li class='nav-item active'>";
+        echo "<a class='nav-link' href=".$menu[$i]["href"].">".$menu[$i]["titulo"]."<span class='sr-only'></span></a></li>";
+        
+      }
+
+    }
+    
+    
+    ?>
       
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <?php echo $menu[2]["titulo"]?>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="madrid.php"><?php echo $menu[2]["dropdown"][0]["titulo"]?></a>
-          <a class="dropdown-item" href="valencia.php"><?php echo $menu[2]["dropdown"][1]["titulo"]?></a>
-          <a class="dropdown-item" href="barcelona.php"><?php echo $menu[2]["dropdown"][2]["titulo"]?></a>
-        </div>
-      </li>
+      
+      
+       
+        
+         
+       
     </ul>
   </div>
 </nav>
