@@ -1,3 +1,19 @@
+<?php
+    $id=0;
+    if(isset($_GET["id"]))$id=$_GET["id"];
+    
+    $mysqli = new mysqli("localhost", "root", "", "RetoPHP");
+    if ($mysqli->connect_err) {
+        header("Location:404.php?msg=Error en la conexion a la base de datos");
+    }else{
+        $resultado = $mysqli->query("SELECT * FROM noticia1 WHERE id=".$id);
+        if($resultado==false){
+            header("Location:404.php?msg=Error en la lectura de la tabla noticia1");
+        }
+    }
+?>
+
+
 <html>
  <head>
  <!--Bootstrap CSS-->
@@ -10,6 +26,11 @@
     include './src/menu.php';
 
  ?>
+ <?php
+            foreach ($resultado as $fila) {
+                echo $fila["titulo"];
+            }
+  ?>
  <h1>Noticia</h1>
 
  <div class="container">

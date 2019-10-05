@@ -9,7 +9,7 @@
    ] ,
   [
     "titulo"=> "Noticias",
-    "href"=> "noticia.php",
+    "href"=> "nuevaNoticia.php",
     "drop"=> false,
   ],
   [

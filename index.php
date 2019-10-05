@@ -1,3 +1,11 @@
+<?php 
+include("conexion.php");
+$con=conectar();
+echo "conectado correctamente";
+
+?>
+
+
 <html>
  <head>
  <!--Bootstrap CSS-->
@@ -10,6 +18,7 @@
     include './src/menu.php';
 
  ?>
+ 
  <!-- Header -->
  <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
@@ -24,6 +33,32 @@
   <!-- About Section -->
   <section id="about" class="about-section text-center">
     <div class="container">
+    
+            <?php
+            $contador=1;
+            foreach ($resultado as $fila) {
+                if($contador==1) echo "<div class='row'>";
+            ?>
+                <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=$fila["titulo"]?></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><?=$fila["subtitulo"]?></h6>
+                            <p class="card-text"><?=(substr($fila["noticia"],0,32)." ...")?></p>
+                            <a href="noticia.php?id=<?=$fila["id"]?>" class="card-link">Leer mas</a>
+                            <a class="card-link"><?=$fila["fecha"]?></a>
+                        </div>
+                    </div>
+                </div>
+            <?php  
+                $contador++;
+                if($contador>3){
+                    $contador=1;
+                    echo "</div>";
+                }
+            }
+            ?>   
+        </div>
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
